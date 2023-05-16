@@ -112,4 +112,6 @@ app.get("/:nickname", async (request, response) => {
   }
 });
 
-app.listen({ port: 8081 }, (e) => console.log("Lyssnar på port 8081"));
+const port = process.env.PORT || 8081;
+
+app.listen({ port: port }, (e) => console.log("Lyssnar på port " + port));
