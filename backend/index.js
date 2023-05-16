@@ -94,23 +94,23 @@ app.get("/posts/:id", async (request, response) => {
   }
 });
 
-app.get("/:nickname", async (request, response) => {
-  try {
-    const nickname = request.params.nickname;
-    console.log(nickname);
-    let profile = await Profile.findAll({
-      where: {
-        nickname: nickname,
-      },
-    });
+// app.get("/:nickname", async (request, response) => {
+//   try {
+//     const nickname = request.params.nickname;
+//     console.log(nickname);
+//     let profile = await Profile.findAll({
+//       where: {
+//         nickname: nickname,
+//       },
+//     });
 
-    console.log(profile);
+//     console.log(profile);
 
-    response.send(profile);
-  } catch (err) {
-    console.log(err);
-  }
-});
+//     response.send(profile);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
 
 const port = process.env.PORT || 8081;
 
