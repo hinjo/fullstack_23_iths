@@ -112,6 +112,8 @@ app.get("/posts/:id", async (request, response) => {
 //   }
 // });
 
+app.use(express.static(path.join(path.resolve(), "public")));
+
 const port = process.env.PORT || 8081;
 
 app.listen({ port: port }, (e) => console.log("Lyssnar på port " + port));

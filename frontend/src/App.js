@@ -11,7 +11,7 @@ function App() {
     // setNickname(prompt("Enter your nickname: "));
 
     if (nickname !== null && nickname !== "") {
-      fetch("http://localhost:8081/" + nickname)
+      fetch("/" + nickname)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -22,7 +22,7 @@ function App() {
 
   function fetchPosts() {
     if (profile !== null) {
-      fetch("http://localhost:8081/posts/" + profile.id)
+      fetch("/posts/" + profile.id)
         .then((response) => {
           console.log(response);
           return response.json();
