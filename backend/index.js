@@ -2,6 +2,7 @@ const express = require("express");
 // const sqlite = require("sqlite");
 const { Sequelize, Op, DataTypes } = require("sequelize");
 const sqlite3 = require("sqlite3");
+const path = require("path");
 
 const app = express();
 
