@@ -115,23 +115,29 @@ app.get("/posts/:id", async (request, response) => {
   }
 });
 
-// app.get("/:nickname", async (request, response) => {
-//   try {
-//     const nickname = request.params.nickname;
-//     console.log(nickname);
-//     let profile = await Profile.findAll({
-//       where: {
-//         nickname: nickname,
-//       },
-//     });
+app.get("/:nickname", async (request, response) => {
+  try {
+    const profile = (
+      await client.query("SELECT * FROM profiles WHERE nickname=$1", [
+        request.params.nickname,
+      ])
+    ).rows;
 
-//     console.log(profile);
+    // const nickname = request.params.nickname;
+    // console.log(nickname);
+    // let profile = await Profile.findAll({
+    //   where: {
+    //     nickname: nickname,
+    //   },
+    // });
 
-//     response.send(profile);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
+    console.log(profile);
+
+    response.send(profile);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 app.use(express.static(path.join(path.resolve(), "public")));
 
