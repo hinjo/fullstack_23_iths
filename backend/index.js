@@ -141,6 +141,8 @@ app.get("/:nickname", async (request, response) => {
 
 app.use(express.static(path.join(path.resolve(), "public")));
 
+// app.use("/images", express.static(__dirname + "/images"));
+
 const port = process.env.PORT || 8081;
 
 app.listen({ port: port }, (e) => console.log("Lyssnar på port " + port));
