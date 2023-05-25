@@ -96,7 +96,9 @@ app.get("/posts/:id", async (request, response) => {
     console.log(request.params.id);
 
     const posts = (
-      await client.query("SELECT * FROM posts WHERE id=$1", [request.params.id])
+      await client.query("SELECT * FROM posts WHERE profile=$1", [
+        request.params.id,
+      ])
     ).rows;
 
     // const id = request.params.id;
